@@ -26,8 +26,8 @@
 </head>
 <body>
 	<div class="center">
-		<a href="signup.jsp" class="link">SignUp</a> <a href="login.jsp"
-			class="link">Login</a>
+		<a href="signup.jsp" class="link">SignUp</a> 
+		<a href="login.jsp" class="link">Login</a>
 	</div>
 </body>
 </html>
