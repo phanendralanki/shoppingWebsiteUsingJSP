@@ -47,7 +47,7 @@
 			if("notexist".equals(msg)){
 			
 		%>
-		<h3 stlye="color:red;">Incorrect user name</h3>
+		<h3 style="color:red;">Incorrect user name</h3>
 		<% } %>
 		<form action="loginAction.jsp" method="post">
 			<input type="email" name="email" placeholder="Enter your email" required>
