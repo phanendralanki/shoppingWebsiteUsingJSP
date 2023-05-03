@@ -11,7 +11,8 @@ String password = request.getParameter("password");
 
 
 try{
-	Connection con = ConnectionProvider.getConnection();
+	Class.forName("com.mysql.jdbc.Driver");
+	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinejsp","root","user");
 	PreparedStatement ps = con.prepareStatement("insert into users(name,email,mobile,securityQuestion,answer,password) values(?,?,?,?,?,?)");
 	ps.setString(1,name);
 	ps.setString(2,email);
