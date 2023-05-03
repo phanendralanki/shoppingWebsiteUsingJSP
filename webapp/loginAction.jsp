@@ -6,19 +6,21 @@
 	String password = request.getParameter("password");
 	
 	if("admin@gmail.com".equals(email)&& "admin".equals(password)){
-		session.setAttribute("email",email);
+		String admin = "admin@gmail.com";
+		session.setAttribute("admin",admin);
 		response.sendRedirect("AdminHome.jsp");
-		
+
 	}else{
 		int f = 0;
 		try{
-			Connection con = ConnectionProvider.getConnection();
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinejsp","root","user");
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery("select *from users where email='"+email+"' and password='"+password+"'");
 			while(rs.next()){
 				f = 1;
 				session.setAttribute("email",email);
-				response.sendRedirect("home.jsp");
+				response.sendRedirect("index.jsp");
 			}if(f==0){
 				response.sendRedirect("login.jsp?msg=not exist");
 			}
